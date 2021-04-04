@@ -3,9 +3,9 @@ package main.java.com.classes.hillel;
 public class Main {
     public static void main(String[] args) {
 
-        String[] array = new String[2];
-        int[] array2 = {1, 2, 3};
-
+//        String[] array = new String[2];
+//        int[] array2 = {1, 2, 3};
+//
 //       array[0] = "Hello";
 //       array[1] = "world";
 //
@@ -15,12 +15,16 @@ public class Main {
                 "e", "f", "g", "h", "i", "j", "k",
                 "l", "m", "n", "o", "p", "q", "r",
                 "s", "t", "u", "v", "w", "x", "y", "z",
+                "A", "B", "C", "D",
+                "E", "F", "G", "H", "I", "J", "K",
+                "L", "M", "N", "O", "P", "Q", "R",
+                "S", "T", "U", "V", "W", "X", "Y", "Z",
                 " ", "!", "?",".",",",":",";","+","-","=","/","*","_",")","("};
 
-        String encryptedWord = encrypt("abc abc !",
+        String encryptedWord = encrypt("Hello world !",
                 alphabet, 3);
         System.out.println(encryptedWord);
-        String decryptedWord = decrypt("def.def.,",alphabet,-3);
+        String decryptedWord = decrypt("Khoor.zruog.,",alphabet,-3);
         System.out.println(decryptedWord);
     }
 
