@@ -1,84 +1,32 @@
 package main.java.com.classes.hillel;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-
-
+import java.util.*;
 public class Main {
-    static BufferedReader reader =
-            new BufferedReader(new InputStreamReader(System.in));
-
+    static int counter = 0;
     public static void main(String[] args) {
-        System.out.println("Что вы предпочитаете кушать ?");
-        String enteredText = getFood();
-        System.out.println("Сколько грамм этого блюда вы способны сьесть ?");
-        int number = getGram();
-        String menu1 = (enteredText + number + " грамм Отличный выбор!");
-        String[] result = menu1.split(" ");
-        for (String s : result){
-            System.out.println(s);
-        }
+//      ___________Sorting array using standard methods_________________
+        int[] myArray = new int[]{8,1,3,5,2,6,4,0,7};
+        Arrays.sort(myArray);
+        System.out.println(Arrays.toString(myArray));
     }
-
-    private static int getGram() {
-        String text = "";
-        try {
-            text = reader.readLine();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+    private static void simpleSort(int[] arrayToSort) {
+        boolean needToBeSorted = true;
+        counter = 0;
+        while (needToBeSorted) {
+            needToBeSorted = false;
+            for (int i = 1; i < arrayToSort.length; ++i) {
+                if (arrayToSort[i - 1] > arrayToSort[i]) {
+                    swap(arrayToSort, i - 1, i);
+                    needToBeSorted = true;
+                }
+            }
         }
-        if (text == null || text.isEmpty()) {
-            text = "0";
-        }
-
-        int number = 0;
-        try {
-            number = Integer.parseInt(text);
-        } catch (NumberFormatException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return number;
+        System.out.println("Counts: " + counter);
+        System.out.println(Arrays.toString(arrayToSort));
     }
-
-    private static String getFood() {
-        String encodingText = "";
-        try {
-            encodingText = reader.readLine();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return encodingText;
+    private static void swap(int[] array, int index1, int index2) {
+        int tmp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = tmp;
+        counter++;
     }
-//
-//        private static String[] completeAlphabet() {
-//            String [] alphabetWithCapitalLetters
-//                    = fillCapitalLetters();
-
-//            String [] alphabetWithSpecialSymbols
-//                    = fillSpecialSymbols(alphabetWithCapitalLetters);
-//
-//            return alphabetWithSpecialSymbols;
-//        }
-
-    private static String[] fillSpecialSymbols(String [] newAlphabet) {
-        //Some actions
-        return newAlphabet;
-    }
-
-//        private static String[] fillCapitalLetters() {
-//            String [] newAlphabet = new String[alphabet.length * 2];
-//
-//            for (int i = 0; i < alphabet.length; ++i) {
-//                newAlphabet[i] = alphabet[i];
-//            }
-//
-//            for (int i = alphabet.length; i < newAlphabet.length; ++i) {
-//                newAlphabet[i] = alphabet[i - alphabet.length].toUpperCase();
-//            }
-//            return newAlphabet;
-//        }
 }
